@@ -32,6 +32,7 @@ Version:1.0.3
 |1.0.1|2015/11/04|RabbitMQの設定にhostnameを追記,ISOのURLを変更|
 |1.0.2|2015/11/06|Neutronパスワードの場所表記に誤りがあったので修正|
 |1.0.3|2015/11/16|本手順書の位置付けを修正|
+|1.0.4|2015/11/16|表記ゆれの修正|
 
 <!-- BREAK -->
 
@@ -1043,7 +1044,7 @@ controller# chown -R keystone:keystone /var/www/cgi-bin/keystonecontroller# chm
 controller# service apache2 restart
 ```
 
-+ パッケージインストール時に作成される不要なSQLiteファイルを削除します。
++ パッケージのインストール時に作成される不要なSQLiteファイルを削除します。
 
 ```
 controller# rm /var/lib/keystone/keystone.db
@@ -1098,7 +1099,7 @@ controller# openstack endpoint create \--publicurl http://controller:5000/v2.0 
 
 <!-- BREAK -->
 
-### 5-8 プロジェクト・ユーザー・ロールの作成
+### 5-8 プロジェクトとユーザー、ロールの作成
 
 以下コマンドで認証情報（テナント・ユーザー・ロール）を設定します。
 
@@ -1421,11 +1422,11 @@ MariaDB [(none)]> show databases;
 
 <!-- BREAK -->
 
-### 6-2 認証情報の作成
+### 6-2 ユーザーとサービス、APIエンドポイントの作成
 
-以下コマンドで認証情報を作成します。
+以下コマンドで認証情報を読み込んだあと、サービスとAPIエンドポイントを設定します。
 
-+ 環境変数の設定
++ 環境変数ファイルの読み込み
 
 admin-openrc.shを読み込むと次のように出力が変化します。
 
@@ -1731,11 +1732,11 @@ MariaDB [(none)]> show databases;
 
 <!-- BREAK -->
 
-### 7-2 認証情報の作成
+### 7-2 ユーザーとサービス、APIエンドポイントの作成
 
-以下コマンドで認証情報を作成します。
+以下コマンドで認証情報を読み込んだあと、サービスとAPIエンドポイントを設定します。
 
-+ 環境変数の設定
++ 環境変数ファイルの読み込み
 
 ```
 controller# source admin-openrc.sh
@@ -1904,7 +1905,7 @@ controller# nova image-list
 
 ## 8. Nova-Computeのインストール・設定（computeノード）
 
-### 8-1 パッケージインストール
+### 8-1 パッケージのインストール
 
 ```
 compute# apt-get update
@@ -2029,7 +2030,7 @@ controller# nova hypervisor-list
 
 ### 9-1 データベース作成・確認
 
-#### 9-1-1 データベース作成
+#### 9-1-1 データベースの作成
 
 MariaDBにデータベースneutronを作成します。
 
@@ -2070,11 +2071,11 @@ MariaDB [(none)]> show databases;
 
 <!-- BREAK -->
 
-### 9-2 認証情報の設定
+### 9-2 ユーザーとサービス、APIエンドポイントの作成
 
-以下コマンドで認証情報を設定します。
+以下コマンドで認証情報を読み込んだあと、サービスとAPIエンドポイントを設定します。
 
-+ 環境変数の設定
++ 環境変数ファイルの読み込み
 
 ```
 controller# source admin-openrc.sh
@@ -2147,7 +2148,7 @@ controller# openstack endpoint create \--publicurl http://controller:9696 \--a
 <!-- BREAK -->
 
 
-### 9-3 パッケージインストール
+### 9-3 パッケージのインストール
 
 ```
 controller# apt-get update
@@ -2346,7 +2347,7 @@ controller:~# neutron ext-list
 
 ## 10. Neutronのインストール・設定（networkノード）
 
-### 10-1 パッケージインストール
+### 10-1 パッケージのインストール
 
 ```
 network# apt-get update
@@ -2636,7 +2637,7 @@ iface eth1 inet static
         netmask 255.255.255.0
 ```
 
-### 10-9 networkノード再起動
+### 10-9 networkノードの再起動
 
 インタフェース設定を適用するために、システムを再起動します。
 
@@ -2646,7 +2647,7 @@ network# reboot
 
 <!-- BREAK -->
 
-### 10-10 ブリッジ設定確認
+### 10-10 ブリッジの設定を確認
 
 各種ブリッジが正常に設定されていることを確認します。
 
@@ -2668,7 +2669,7 @@ network# ip a |grep 'LOOPBACK\|BROADCAST\|inet'
 7: br-tun: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default
 ```
 
-### 10-11 Neutronサービスの動作の確認
+### 10-11 Neutronサービスの動作確認
 
 構築したNeutronのエージェントが正しく認識され、稼働していることを確認します。
 
@@ -2690,7 +2691,7 @@ controller# neutron agent-list -c host -c alive -c binary
 
 ## 11. Neutronのインストール・設定（computeノード）
 
-### 11-1 パッケージインストール
+### 11-1 パッケージのインストール
 
 ```
 compute# apt-get update
@@ -2847,7 +2848,7 @@ controller# neutron agent-list -c host -c alive -c binary
 
 ### 12-1 外部接続ネットワークの設定
 
-#### 12-1-1 admin環境変数読み込み
+#### 12-1-1 admin環境変数ファイルの読み込み
 
 外部接続用ネットワーク作成するためにadmin環境変数を読み込みます。
 
@@ -2882,7 +2883,7 @@ Created a new network:
 
 <!-- BREAK -->
 
-#### 12-1-3 外部ネットワーク用サブネット作成
+#### 12-1-3 外部ネットワーク用サブネットを作成
 
 ext-subnetという名前で外部ネットワーク用サブネットを作成します。
 
@@ -2911,9 +2912,9 @@ Created a new subnet:
 +-------------------+----------------------------------------------------+
 ```
 
-### 12-2 インスタンス用ネットワーク設定
+### 12-2 インスタンス用ネットワークの設定
 
-#### 12-2-1 demo環境変数読み込み
+#### 12-2-1 demo環境変数ファイルの読み込み
 
 インスタンス用ネットワーク作成するためにdemo環境変数読み込みます。
 
@@ -2923,7 +2924,7 @@ controller# source demo-openrc.sh
 
 <!-- BREAK -->
 
-#### 12-2-2 インスタンス用ネットワーク作成
+#### 12-2-2 インスタンス用ネットワークの作成
 
 demo-netという名前でインスタンス用ネットワークを作成します。
 
@@ -2945,7 +2946,7 @@ Created a new network:
 +-----------------+--------------------------------------+
 ```
 
-#### 11-2-3 インスタンス用ネットワークサブネット作成
+#### 11-2-3 インスタンス用ネットワークサブネットを作成
 
 demo-subnetという名前でインスタンス用ネットワークサブネットを作成します。
 
@@ -2974,7 +2975,7 @@ Created a new subnet:
 
 <!-- BREAK -->
 
-### 12-3 仮想ネットワークルーター設定
+### 12-3 仮想ネットワークルーターの設定
 
 仮想ネットワークルーターを作成して外部接続用ネットワークとインスタンス用ネットワークをルーターに接続し、双方でデータのやり取りを行えるようにします。
 
@@ -2999,7 +3000,7 @@ Created a new router:
 +-----------------------+--------------------------------------+
 ```
 
-#### 12-3-2 demo-routerにsubnetを追加
+#### 12-3-2 demo-routerにサブネットを追加
 
 仮想ネットワークルーターにインスタンス用ネットワークを接続します。
 
@@ -3008,7 +3009,7 @@ controller# neutron router-interface-add demo-router demo-subnet
 Added interface a66a184a-55b3-49d8-bbbf-3bbf2fe32de2 to router demo-router.
 ```
 
-#### 12-3-3 demo-routerにgatewayを追加
+#### 12-3-3 demo-routerにゲートウェイを追加
 
 仮想ネットワークルーターに外部ネットワークを接続します。
 
@@ -3063,7 +3064,7 @@ network# ip netns exec `ip netns | grep qrouter` ip addr
 
 <!-- BREAK -->
 
-### 13-3 仮想ゲートウェイの疎通確認
+### 13-3 仮想ゲートウェイの疎通を確認
 
 仮想ルーターの外から仮想ルーターに対して疎通可能かを確認します。
 
@@ -3155,11 +3156,11 @@ Request to delete server vm1 has been accepted.
 <!-- BREAK -->
 
 
-## 14. Cinderインストール（controllerノード）
+## 14. Cinderのインストール（controllerノード）
 
 ### 14-1 データベース作成・確認
 
-#### 14-1-1 データベース作成
+#### 14-1-1 データベースの作成
 
 MariaDBのデータベースにCinderのデータベースを作成します。
 
@@ -3200,11 +3201,11 @@ MariaDB [(none)]> show databases;
 <!-- BREAK -->
 
 
-### 14-2 認証情報の設定
+### 14-2 ユーザーとサービス、APIエンドポイントの作成
 
-以下コマンドで認証情報を設定します。
+以下コマンドで認証情報を読み込んだあと、サービスとAPIエンドポイントを設定します。
 
-+ 環境変数の設定
++ 環境変数ファイルの読み込み
 
 ```
 controller# source admin-openrc.sh
@@ -3304,7 +3305,7 @@ controller# openstack endpoint create \--publicurl http://controller:8776/v2/%\
 <!-- BREAK -->
 
 
-### 14-3 パッケージインストール
+### 14-3 パッケージのインストール
 
 本書ではBlock StorageコントローラーとBlock Storageボリュームコンポーネントを一台のマシンで構築するため、両方の役割をインストールします。
 
@@ -3362,7 +3363,7 @@ controller# su -s /bin/sh -c "cinder-manage db sync" cinder
 controller# service cinder-scheduler restart && service cinder-api restart
 ```
 
-### 14-7 使用しないデータベースファイル削除
+### 14-7 使用しないデータベースファイルの削除
 
 ```
 controller# rm /var/lib/cinder/cinder.sqlite
@@ -3370,7 +3371,7 @@ controller# rm /var/lib/cinder/cinder.sqlite
 
 <!-- BREAK -->
 
-### 14-8 イメージ格納用ボリューム作成
+### 14-8 イメージ格納用ボリュームの作成
 
 イメージ格納用ボリュームを設定するために物理ボリュームの設定、ボリューム作成を行います。
 
@@ -3406,7 +3407,7 @@ Cinderストレージの設定を反映させるために、Cinder-Volumeのサ�
 controller# service cinder-volume restart && service tgt restart
 ```
 
-#### 14-8-4 admin環境変数設定ファイル読み込み
+#### 14-8-4 admin環境変数設定ファイルの読み込み
 
 Block StorageクライアントでAPI 2.0でアクセスするように環境変数設定ファイルを書き換えます。
 
@@ -3422,7 +3423,7 @@ controller# source admin-openrc.sh
 
 <!-- BREAK -->
 
-#### 14-8-5 ボリューム作成
+#### 14-8-5 ボリュームの作成
 
 以下コマンドでインスタンス格納用ボリュームを作成します。
 
@@ -3484,7 +3485,7 @@ controller# cinder delete testvolume01
 
 クライアントマシンからブラウザーでOpenStack環境を操作可能なWebインターフェイスをインストールします。
 
-### 15-1 パッケージインストール
+### 15-1 パッケージのインストール
 
 controllerノードにDashboardをインストールします。
 
@@ -3839,7 +3840,7 @@ CentOS6.5以降および7.x向けには導入に便利なRPMパッケージが�
 hatohol# wget -P /etc/yum.repos.d/ http://project-hatohol.github.io/repo/hatohol-el7.repo
 ```
 
-　2. EPELリポジトリー上のパッケージインストールをサポートするため、EPELパッケージを追加インストールします。
+　2. EPELリポジトリー上のパッケージのインストールをサポートするため、EPELパッケージを追加インストールします。
 
 ```
 hatohol# yum install -y epel-release
