@@ -1,11 +1,11 @@
 Title: OpenStack構築手順書 Kilo版
 Company: 日本仮想化技術
-Version:1.0.2
+Version:1.0.3
 
 #OpenStack構築手順書 Kilo版
 
 <div class="title">
-バージョン：1.0.2 (2015/11/06作成)<br>
+バージョン：1.0.3 (2015/11/16作成)<br>
 日本仮想化技術株式会社
 </div>
 
@@ -31,6 +31,7 @@ Version:1.0.2
 |1.0.0|2015/08/05|プロキシー設定について追記|
 |1.0.1|2015/11/04|RabbitMQの設定にhostnameを追記,ISOのURLを変更|
 |1.0.2|2015/11/06|Neutronパスワードの場所表記に誤りがあったので修正|
+|1.0.3|2015/11/16|本手順書の位置付けを修正|
 
 <!-- BREAK -->
 
@@ -41,7 +42,7 @@ Version:1.0.2
 
 #Part.1 OpenStack 構築編
 <br>
-本章は、OpenStack Foundationが公開している公式ドキュメント「OpenStack Installation Guide for Ubuntu 14.04」の内容から、「Block Storage Service」までの構築手順を翻訳したものです。
+本章は、OpenStack Foundationが公開している公式ドキュメント「OpenStack Installation Guide for Ubuntu 14.04」の内容から、「Block Storage Service」までの構築手順をベースに加筆したものです。
 OpenStackをUbuntu Server 14.04.2 ベースで構築する手順を解説しています。
 Canonical社が提供するCloud Archiveリポジトリーを使って、OpenStackの最新版Kiloを導入しましょう。
 
