@@ -1,11 +1,11 @@
 Title: OpenStack構築手順書 Kilo版
 Company: 日本仮想化技術
-Version:1.0.3
+Version:1.0.5
 
 #OpenStack構築手順書 Kilo版
 
 <div class="title">
-バージョン：1.0.3 (2015/11/16作成)<br>
+バージョン：1.0.5 (2016/01/13作成)<br>
 日本仮想化技術株式会社
 </div>
 
@@ -33,6 +33,7 @@ Version:1.0.3
 |1.0.2|2015/11/06|Neutronパスワードの場所表記に誤りがあったので修正|
 |1.0.3|2015/11/16|本手順書の位置付けを修正|
 |1.0.4|2015/11/16|表記ゆれの修正|
+|1.0.5|2016/01/13|表記ゆれの修正|
 
 <!-- BREAK -->
 
@@ -4087,9 +4088,9 @@ Zabbix Agentをインストールしたら次にどのZabbixサーバーと通�
 ```
 # vi /etc/zabbix/zabbix_agentd.conf
 ...
-Server          10.0.0.10     ← ZAbbixサーバーのIPアドレスに書き換え
-ServerActive    10.0.0.10     ← ZAbbixサーバーのIPアドレスに書き換え
-Hostname  controller      ← ZAbbixサーバーに登録する際のホスト名と同一のものを設定
+Server          10.0.0.10     ← ZabbixサーバーのIPアドレスに書き換え
+ServerActive    10.0.0.10     ← ZabbixサーバーのIPアドレスに書き換え
+Hostname  controller      ← Zabbixサーバーに登録する際のホスト名と同一のものを設定
 ListenIP  10.0.0.101      ← Zabbixエージェントが待ち受ける側のIPアドレス
 ```
 
