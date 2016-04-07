@@ -1,11 +1,11 @@
 Title: OpenStack構築手順書 Kilo版
 Company: 日本仮想化技術
-Version:1.0.5
+Version:1.0.6
 
 #OpenStack構築手順書 Kilo版
 
 <div class="title">
-バージョン：1.0.5 (2016/01/13作成)<br>
+バージョン：1.0.6 (2016/04/07作成)<br>
 日本仮想化技術株式会社
 </div>
 
@@ -34,6 +34,7 @@ Version:1.0.5
 |1.0.3|2015/11/16|本手順書の位置付けを修正|
 |1.0.4|2015/11/16|表記ゆれの修正|
 |1.0.5|2016/01/13|表記ゆれの修正|
+|1.0.6|2016/04/07|5-8,7-2の書式崩れの対応|
 
 <!-- BREAK -->
 
@@ -1136,6 +1137,7 @@ Repeat User Password: password
 ```
 
 + adminロールの作成
+
 ```
 controller# openstack role create admin
 +-------+----------------------------------+
@@ -1146,7 +1148,8 @@ controller# openstack role create admin
 +-------+----------------------------------+
 ```
 
-+ adminプロジェクトとユーザーにadminロールを追加します。
++ adminプロジェクトとユーザーにadminロールを追加
+
 ```
 controller# openstack role add --project admin --user admin admin
 +-------+----------------------------------+
@@ -1160,6 +1163,7 @@ controller# openstack role add --project admin --user admin admin
 <!-- BREAK -->
 
 + serviceプロジェクトを作成
+
 ```
 controller# openstack project create --description "Service Project" service
 +-------------+----------------------------------+
@@ -1173,6 +1177,7 @@ controller# openstack project create --description "Service Project" service
 ```
 
 + demoプロジェクトの作成
+
 ```
 controller# openstack project create --description "Demo Project" demo
 +-------------+----------------------------------+
@@ -1186,6 +1191,7 @@ controller# openstack project create --description "Demo Project" demo
 ```
 
 + demoユーザーの作成
+
 ```
 controller# openstack user create --password-prompt demo
 User Password: password  #demoユーザーのパスワードを設定(本例はpasswordを設定)
@@ -1202,6 +1208,7 @@ Repeat User Password: password
 ```
 
 + userロールの作成
+
 ```
 controller# openstack role create user
 +-------+----------------------------------+
@@ -1212,7 +1219,8 @@ controller# openstack role create user
 +-------+----------------------------------+
 ```
 
-+ demoプロジェクトとdemoユーザーにuserロールを追加します。
++ demoプロジェクトとdemoユーザーにuserロールを追加
+
 ```
 controller# openstack role add --project demo --user demo user
 +-------+----------------------------------+
@@ -1773,6 +1781,7 @@ controller# openstack role add --project service --user nova admin
 ```
 
 + novaサービスの作成
+
 ```
 controller# openstack service create --name nova --description "OpenStack Compute" compute
 +-------------+----------------------------------+
