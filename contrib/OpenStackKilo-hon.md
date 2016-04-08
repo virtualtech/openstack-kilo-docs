@@ -1,11 +1,11 @@
 Title: OpenStack構築手順書 Kilo版
 Company: 日本仮想化技術
-Version:1.0.6
+Version:1.0.6-2
 
 #OpenStack構築手順書 Kilo版
 
 <div class="title">
-バージョン：1.0.6 (2016/04/07作成)<br>
+バージョン：1.0.6-2 (2016/04/08作成)<br>
 日本仮想化技術株式会社
 </div>
 
@@ -34,7 +34,8 @@ Version:1.0.6
 |1.0.3|2015/11/16|本手順書の位置付けを修正|
 |1.0.4|2015/11/16|表記ゆれの修正|
 |1.0.5|2016/01/13|表記ゆれの修正|
-|1.0.6|2016/04/07|5-8,7-2の書式崩れの対応|
+|1.0.6-1|2016/04/07|5-8,7-2の書式崩れの対応|
+|1.0.6-2|2016/04/08|1-1を現状に合わせて書き換え|
 
 <!-- BREAK -->
 
@@ -61,9 +62,8 @@ OSはUbuntu Server 14.04.2 LTS（以下Ubuntu Server）のイメージを使用�
 
 - <http://old-releases.ubuntu.com/releases/14.04.2/ubuntu-14.04.2-server-amd64.iso>
 
-[Update] Ubuntu Server 14.04.3は下記のURLからダウンロードできます。Ubuntu Server 14.04.3を使う場合は「1-6-2 カーネルの更新」の手順は不要です。
-
-- <http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso>
+このドキュメントはUbuntu Server 14.04.2がリリースされた時期に執筆されたものです。
+Ubuntu Server 14.04.2より新しいバージョンを使ってOpenStack Kilo環境を構築する場合は本手順で説明したよりも新しいバージョンのLinux Kernelが提供されるため、「1-6-2 カーネルの更新」の手順は不要です。
 
 ### 1-2 サーバーの構成について
 
