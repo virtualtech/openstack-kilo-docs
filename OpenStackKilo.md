@@ -1,11 +1,11 @@
 Title: OpenStack構築手順書 Kilo版
 Company: 日本仮想化技術
-Version:1.0.6-2
+Version:1.0.6-3
 
 #OpenStack構築手順書 Kilo版
 
 <div class="title">
-バージョン：1.0.6-2 (2016/04/08作成)<br>
+バージョン：1.0.6-3 (2016/07/21作成)<br>
 日本仮想化技術株式会社
 </div>
 
@@ -36,7 +36,8 @@ Version:1.0.6-2
 |1.0.5|2016/01/13|表記ゆれの修正|
 |1.0.6-1|2016/04/07|5-8,7-2の書式崩れの対応|
 |1.0.6-2|2016/04/08|1-1を現状に合わせて書き換え|
-
+|1.0.6-3|2016/07/21|5-5を現状に合わせて書き換え([bug#1](https://github.com/virtualtech/openstack-kilo-docs/issues/1))|
+ 
 <!-- BREAK -->
 
 ##目次
@@ -47,8 +48,8 @@ Version:1.0.6-2
 #Part.1 OpenStack 構築編
 <br>
 本章は、OpenStack Foundationが公開している公式ドキュメント「OpenStack Installation Guide for Ubuntu 14.04」の内容から、「Block Storage Service」までの構築手順をベースに加筆したものです。
-OpenStackをUbuntu Server 14.04.2 ベースで構築する手順を解説しています。
-Canonical社が提供するCloud Archiveリポジトリーを使って、OpenStackの最新版Kiloを導入しましょう。
+OpenStackをUbuntu Server 14.04.2ベースで構築する手順を解説しています。
+Canonical社が提供するCloud Archiveリポジトリーを使って、OpenStack Kiloを導入しましょう。
 
 <!-- BREAK -->
 
@@ -1028,7 +1029,7 @@ controller# mkdir -p /var/www/cgi-bin/keystone
 + WSGIコンポーネントをUpstreamリポジトリーからコピーし、先ほどのディレクトリーに展開します。
 
 ```
-controller# curl http://git.openstack.org/cgit/openstack/keystone/plain/httpd/keystone.py?h=stable/kilo \| tee /var/www/cgi-bin/keystone/main /var/www/cgi-bin/keystone/admin
+controller# curl http://git.openstack.org/cgit/openstack/keystone/plain/httpd/keystone.py?h=kilo-eol \| tee /var/www/cgi-bin/keystone/main /var/www/cgi-bin/keystone/admin
 ```
 
 + ディレクトリーとファイルのパーミッションを修正します。
