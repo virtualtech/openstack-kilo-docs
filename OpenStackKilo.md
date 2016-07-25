@@ -1,11 +1,11 @@
 Title: OpenStack構築手順書 Kilo版
 Company: 日本仮想化技術
-Version:1.0.6-3
+Version:1.0.6-4
 
 #OpenStack構築手順書 Kilo版
 
 <div class="title">
-バージョン：1.0.6-3 (2016/07/21作成)<br>
+バージョン：1.0.6-4 (2016/07/25作成)<br>
 日本仮想化技術株式会社
 </div>
 
@@ -37,6 +37,7 @@ Version:1.0.6-3
 |1.0.6-1|2016/04/07|5-8,7-2の書式崩れの対応|
 |1.0.6-2|2016/04/08|1-1を現状に合わせて書き換え|
 |1.0.6-3|2016/07/21|5-5を現状に合わせて書き換え([bug#1](https://github.com/virtualtech/openstack-kilo-docs/issues/1))|
+|1.0.6-4|2016/07/25|軽微な修正|
  
 <!-- BREAK -->
 
@@ -3423,7 +3424,7 @@ controller# service cinder-volume restart && service tgt restart
 Block StorageクライアントでAPI 2.0でアクセスするように環境変数設定ファイルを書き換えます。
 
 ```
-controller# echo "export OS_VOLUME_API_VERSION=2" | tee -a admin-openrc.sh demoopenrc.sh
+controller# echo "export OS_VOLUME_API_VERSION=2" | tee -a admin-openrc.sh demo-openrc.sh
 ```
 
 インスタンス格納用ボリュームを作成するために、admin環境変数を読み込みます。
